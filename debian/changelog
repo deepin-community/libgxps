@@ -1,0 +1,142 @@
+libgxps (0.3.2-1) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>  Mon, 06 Jun 2022 17:30:40 +0800
+
+libgxps (0.3.2-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 26 Feb 2021 16:10:45 +0100
+
+libgxps (0.3.1-1) unstable; urgency=medium
+
+  * New upstream release
+    - This release also includes the fixes we cherry-picked in 0.3.0-3 for
+      CVE-2018-10767 (Closes: #898133)
+  * Drop all patches: applied in new release
+  * Bump minimum meson to 0.43.0
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sat, 05 Jan 2019 09:33:11 -0500
+
+libgxps (0.3.0-4) unstable; urgency=medium
+
+  * Restore -Wl,-O1 to our LDFLAGS
+  * debian/libgxps2.symbols: Add Build-Depends-Package
+  * Bump Standards-Version to 4.3.0
+
+ -- Jeremy Bicha <jbicha@debian.org>  Fri, 28 Dec 2018 08:23:21 -0500
+
+libgxps (0.3.0-3) unstable; urgency=medium
+
+  * Update Vcs fields for migration to https://salsa.debian.org/
+  * Use debian/libgxps-utils.manpages instead of dh_install
+  * Bump Standards-Version to 4.2.1
+  * Cherry-pick docs-Fix-OUTPUT-FILE-description.patch:
+    - fix typo in manpages (Closes: #887615)
+  * Cherry-pick gxps-archive-Ensure-gxps_archive_read_entry-fills-the-GEr.patch
+    & gxps-archive-Handle-errors-returned-by-archive_read_data.patch:
+    - Fix heap buffer overflow in ft_font_face_hash of gxps-fonts.c
+      CVE-2018-10733 (Closes: #897954)
+  * Cherry-pick gxps-images-fix-integer-overflow-in-png-decoder.patch:
+    - Fix an integer overflow
+  * Cherry-pick gxps-images-clear-the-error-before-trying-to-load-an-imag.patch:
+    - clear an error so that fallback image loading works
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 14 Oct 2018 01:14:59 -0400
+
+libgxps (0.3.0-2) unstable; urgency=medium
+
+  * Update Vcs fields for conversion to git
+  * Add debian/gbp.conf
+  * Bump Standards-Version to 4.1.2
+  * Bump debhelper compat to 11
+  * Build with all hardening flags
+
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 18 Dec 2017 19:11:35 -0500
+
+libgxps (0.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Includes fix for CVE-2017-11590 (Closes: #870183)
+  * Build with meson.
+  * Bump debhelper compat to 10.
+  * Bump Standards-Version to 4.0.1.
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 09 Aug 2017 22:09:31 -0400
+
+libgxps (0.2.5-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Be more specific about which versions of libglib2.0-dev and libcairo2-dev
+    we require.
+  * Drop private symbols from libgxps2.symbols. Those are no longer exported
+    by upstream. Removing those symbols is safe as they were never part of the
+    public API and no other package was using it.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 20 Mar 2017 01:04:18 +0100
+
+libgxps (0.2.4-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Convert from cdbs to dh.
+  * Set pkg-gnome-maintainers@lists.alioth.debian.org as Maintainer, list
+    Savvas Radevic as Uploader.
+  * Install typelib files into multiarch paths.
+  * Mark gir1.2-gxps-0.1 and libgxps-dev as Multi-Arch: same.
+  * Bump Standards-Version to 3.9.8.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 22 Jun 2016 04:04:18 +0200
+
+libgxps (0.2.3.2-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Thu, 17 Sep 2015 16:20:47 +0200
+
+libgxps (0.2.3.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Drop debian/patches/fix-build-with-libpng16.patch
+    - now part of upstream release.
+  * Update debian/libgxps2.symbols with new additions.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 24 Aug 2015 17:59:11 +0200
+
+libgxps (0.2.2-3) unstable; urgency=low
+
+  * Team upload
+
+  [ Jeremy Bicha ]
+  * Update homepage
+
+  [ Andreas Henriksson ]
+  * Add debian/patches/fix-build-with-libpng16.patch (Closes: #743387)
+
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 02 Apr 2014 21:15:07 +0200
+
+libgxps (0.2.2-2) unstable; urgency=low
+
+  [ Savvas Radevic ]
+  * Install gir1.2-gxps-0.1 typelib in /usr/lib/girepository-1.0/
+    gobject-introspection doesn't support multiarch. (Closes: #667993)
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 13 Apr 2012 19:47:18 +0200
+
+libgxps (0.2.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Build-Depends on cdbs for multiarch support.
+  * debian/patches/01_fix-gtk-doc-build.patch: Removed, merged upstream.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 19 Mar 2012 15:28:37 +0100
+
+libgxps (0.2.1-1) unstable; urgency=low
+
+  [ Savvas Radevic ]
+  * Initial release (LP: #912789) (Closes: #654892)
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 08 Mar 2012 16:00:35 +0100
